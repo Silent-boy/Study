@@ -2,6 +2,7 @@ package com.autoxss.myapplication.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
@@ -93,7 +94,7 @@ public class HttpUtil {
         return null;
     }
 
-    public static byte[] getBitmap(String path) {
+    public static Bitmap getBitmap(String path) {
 
         HttpURLConnection connection = null;
 
@@ -115,16 +116,9 @@ public class HttpUtil {
 
                 InputStream iStream = connection.getInputStream();
 
-                byte[] buffer = new byte[1024];
-                int len = 0;
+                bitmap = BitmapFactory.decodeStream(iStream);
 
-                while ((len = iStream.read(buffer)) != -1) {
-
-                    outputStream.write(buffer, 0, len);
-                    outputStream.flush();
-                }
-
-                return outputStream.toByteArray();
+                return bitmap;
             }
 
 
