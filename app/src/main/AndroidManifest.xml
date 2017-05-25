@@ -12,12 +12,13 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTask">
-
-        </activity>
+            android:launchMode="singleTask"></activity>
         <activity android:name=".TestActivity" />
         <activity android:name=".StorageActivity" />
         <activity android:name=".HttpActivity">
+
+        </activity>
+        <activity android:name=".DataBaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
