@@ -18,15 +18,20 @@
         <activity android:name=".StorageActivity" />
         <activity android:name=".HttpActivity"></activity>
         <activity android:name=".DataBaseActivity">
-
-        </activity>
-        <activity android:name=".ResolverActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ResolverActivity">
+
+        </activity>
+
+        <provider
+            android:name=".provider.MyContentProvider"
+            android:authorities="com.autoxss.myapplication.mycontentprovder"
+            android:exported="true"></provider>
     </application>
 
 </manifest>
