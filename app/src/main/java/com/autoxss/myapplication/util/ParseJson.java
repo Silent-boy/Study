@@ -1,16 +1,16 @@
 package com.autoxss.myapplication.util;
 
+import com.autoxss.myapplication.bean.Shop;
+import com.autoxss.myapplication.bean.ShopDetail;
+import com.autoxss.myapplication.bean.Suites;
+import com.autoxss.myapplication.bean.Ware;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.autoxss.myapplication.bean.Shop;
-import com.autoxss.myapplication.bean.ShopDetail;
-import com.autoxss.myapplication.bean.Suites;
-import com.autoxss.myapplication.bean.Ware;
 
 /**
  * Created by Huihui on 2017/5/10.
@@ -65,7 +65,7 @@ public class ParseJson {
                 suiteList.add(suites);
             }
             shopDetail = new ShopDetail(id, name, phone, city, positions);
-            shop=new Shop(shopDetail,comments_count,suiteList);
+            shop = new Shop(shopDetail, comments_count, suiteList);
 
 
         } catch (JSONException e) {

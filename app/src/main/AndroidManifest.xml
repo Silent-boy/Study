@@ -3,7 +3,8 @@
     package="com.autoxss.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG"></uses-permission>
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -16,22 +17,29 @@
             android:launchMode="singleTask" />
         <activity android:name=".TestActivity" />
         <activity android:name=".StorageActivity" />
-        <activity android:name=".HttpActivity"></activity>
+        <activity android:name=".HttpActivity" />
         <activity android:name=".DataBaseActivity">
+
+        </activity>
+        <activity android:name=".ResolverActivity"></activity>
+
+        <provider
+            android:name=".provider.MyContentProvider"
+            android:authorities="com.autoxss.myapplication.mycontentprovder"
+            android:exported="true" />
+
+        <activity android:name=".BroadCastActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResolverActivity">
-
-        </activity>
-
-        <provider
-            android:name=".provider.MyContentProvider"
-            android:authorities="com.autoxss.myapplication.mycontentprovder"
-            android:exported="true"></provider>
+        <receiver android:name=".receiver.MyBroadCastReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
